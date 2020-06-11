@@ -1,14 +1,18 @@
 package br.com.eberoliveira.lojaderoupas.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.eberoliveira.lojaderoupas.business.bean.CatalogoBean;
+import br.com.eberoliveira.lojaderoupas.business.bean.RoupaBean;
 import br.com.eberoliveira.lojaderoupas.business.enums.CategoriaEnum;
 
 /**
@@ -43,9 +47,34 @@ public class CatalogoController extends HttpServlet {
 		request.setAttribute("roupas", catalogoBean.getRoupasFiltradas(codigosCategoria) );
 		request.setAttribute("categorias", CategoriaEnum.values());
 		
-		// Envia pagina JSP na requisicao
-		request.getRequestDispatcher("/catalogo.jsp").forward(request, response);
+		//Usuario clicou no botao adicionar
+		if (request.getParameter("adicionar") != null) {
+			HttpSession session = request.getSession();
+			//Verifica se ja existe um cart ou cria um
+			if (session.getAttribute("cart") == null) {
+				//Caso nao exista lista de compra cria uma
+				List<RoupaBean> cart = new ArrayList<>();
+				session.setAttribute("cart", cart);			
+			}
+			
+			//Identifica qual roupa o usuario clicou pelo codigo da roupa
+			List<RoupaBean> cart =(List<RoupaBean>) session.getAttribute("cart");
+			
+			//Identifica o codigo da roupa que o usuario clicou
+			String codigoString = request.getParameter("adicionar");
+			Integer codigo = Integer.parseInt(codigoString);
+			
+			//Procura todas as roupas e procura aquela com codigo igual
+			List<RoupaBean> todasAsRoupas = catalogoBean.getRoupas();
+			for (RoupaBean roupa : todasAsRoupas) {
+				if (roupa.getCodigo().equals(codigo)) {
+					cart.add(roupa);
+				}			
+			}			
+		}
 		
+		// Envia pagina JSP na requisicao
+		request.getRequestDispatcher("/catalogo.jsp").forward(request, response);		
 	}
 
 	/**
