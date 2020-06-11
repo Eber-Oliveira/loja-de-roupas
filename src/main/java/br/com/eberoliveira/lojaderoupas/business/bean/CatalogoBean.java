@@ -9,14 +9,17 @@ public class CatalogoBean {
 	public CatalogoBean() {
 		//Inicia a lista de roupas com algumas roupas
 		roupas = new ArrayList<>();
-		roupas.add(novaRoupa("Camisa", "Roupa Masculinna", 49.9f));
-		roupas.add(novaRoupa("Calça", "Roupa Masculinna", 80f));
-		roupas.add(novaRoupa("Regata", "Roupa Feminina", 15f));
-		roupas.add(novaRoupa("Vestido", "Roupa Feminina", 120f));
+		roupas.add(novaRoupa("Camisa", "Roupa Masculinna", 49.9f, "camisa.jpg"));
+		roupas.add(novaRoupa("Calça", "Roupa Masculinna", 80f, "calca.jpg"));
+		roupas.add(novaRoupa("Regata", "Roupa Feminina", 15f, "regata.jpg"));
+		roupas.add(novaRoupa("Vestido", "Roupa Feminina", 120f, "vestido.jpg"));
+		roupas.add(novaRoupa("Macacão", "Roupa Feminina", 70.99f, "macacao.jpg"));
+		roupas.add(novaRoupa("Roupa de Grávida", "Roupa Feminina", 80f, "roupa-de-gravida.jpg"));
+		roupas.add(novaRoupa("Roupa de Verão", "Roupa Feminina", 45.99f, "roupa-de-verao.jpg"));
 		
 	}
 	//Funçao Auxiliar para criar novas roupas
-	private RoupaBean novaRoupa(String nome, String categoria, float preco) {
+	private RoupaBean novaRoupa(String nome, String categoria, float preco, String nomeImagem) {
 		//Calcula o código de acordo com o tamanho da lista de roupas
 		
 		Integer codigo = roupas.size();
@@ -27,6 +30,7 @@ public class CatalogoBean {
 		roupaBean.setNome(nome);
 		roupaBean.setCategoria(categoria);
 		roupaBean.setPreco(preco);
+		roupaBean.setNomeImagem(nomeImagem);
 		
 		return roupaBean;		
 	}
