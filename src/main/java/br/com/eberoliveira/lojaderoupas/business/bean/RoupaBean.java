@@ -3,6 +3,7 @@ package br.com.eberoliveira.lojaderoupas.business.bean;
 public class RoupaBean {
 	private Integer codigo;
 	private String nome;
+	private Integer codigoCategoria;
 	private String categoria;
 	private Float preco;
 	private String nomeImagem;
@@ -37,6 +38,12 @@ public class RoupaBean {
 	}
 	public void setNomeImagem(String nomeImagem) {
 		this.nomeImagem = nomeImagem;
+	}
+	public Integer getCodigoCategoria() {
+		return codigoCategoria;
+	}
+	public void setCodigoCategoria(Integer codigoCategoria) {
+		this.codigoCategoria = codigoCategoria;
 	}
 
 }

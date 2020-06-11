@@ -2,6 +2,7 @@ package br.com.eberoliveira.lojaderoupas.business.enums;
 
 public enum CategoriaEnum {
 	
+	//Criamos objetos do enum seguindo construtor privado
 	ROUPA_MASCULINA("Roupa Masculina", 0), ROUPA_FEMININA("Roupa Feminina", 1),
 	ROUPA_INFANTIL("Roupa Infantil", 2), FANTASIA("Fantasia", 3);
 	
