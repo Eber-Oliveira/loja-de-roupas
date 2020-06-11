@@ -51,7 +51,7 @@
 										<div class="card-footer text-center">
 
 											<div class="btn-group">
-												<button type = "submit" name = "Adicionar" value = "${ roupa.codigo }"class="btn btn-primary">Adicionar</button>
+												<button type = "submit" name = "adicionar" value = "${ roupa.codigo }"class="btn btn-primary">Adicionar</button>
 												<a class="btn btn-info" href="#">Detalhes</a>
 											</div>
 

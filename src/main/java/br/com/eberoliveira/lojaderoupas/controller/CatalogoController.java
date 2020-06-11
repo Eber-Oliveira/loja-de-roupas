@@ -49,6 +49,7 @@ public class CatalogoController extends HttpServlet {
 		
 		//Usuario clicou no botao adicionar
 		if (request.getParameter("adicionar") != null) {
+			
 			HttpSession session = request.getSession();
 			//Verifica se ja existe um cart ou cria um
 			if (session.getAttribute("cart") == null) {
