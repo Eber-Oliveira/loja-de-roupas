@@ -1,15 +1,15 @@
 package br.com.eberoliveira.lojaderoupas.business.bean;
 
 public class RoupaBean {
-	private Long codigo;
+	private Integer codigo;
 	private String nome;
 	private String categoria;
 	private Float preco;
 	
-	public Long getCodigo() {
+	public Integer getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(Long codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
 	public String getNome() {
